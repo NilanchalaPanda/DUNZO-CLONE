@@ -1,4 +1,4 @@
-import 'package:dunzo/pages/login.dart';
+import 'package:dunzo/pages/signup.dart';
 // import 'package:dunzo/pages/Home.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const LogIn(),
+      home: const SignUp(),
     );
   }
 }
