@@ -1,15 +1,15 @@
-import "package:dunzo/pages/login.dart";
-import "package:dunzo/widget/widget_support.dart";
+import "package:dunzo/pages/signup.dart";
 import "package:flutter/material.dart";
+import "package:dunzo/widget/widget_support.dart";
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
+class LogIn extends StatefulWidget {
+  const LogIn({super.key});
 
   @override
-  State<SignUp> createState() => _LogInState();
+  State<LogIn> createState() => _LogInState();
 }
 
-class _LogInState extends State<SignUp> {
+class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +72,7 @@ class _LogInState extends State<SignUp> {
                       color: Colors.white,
                       margin: const EdgeInsets.all(35.0),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
+                          borderRadius: BorderRadius.circular(20.0)),
                       elevation: 10.0,
                       child: Padding(
                         padding:
@@ -81,19 +81,11 @@ class _LogInState extends State<SignUp> {
                           children: [
                             const SizedBox(height: 10.0),
                             const Text(
-                              "SignUp",
+                              "LogIn",
                               style: TextStyle(
                                   fontSize: 37.0,
                                   fontFamily: "Poppins1",
                                   fontWeight: FontWeight.w600),
-                            ),
-                            const SizedBox(height: 20.0),
-                            TextField(
-                              decoration: InputDecoration(
-                                hintText: "Name",
-                                hintStyle: AppWidget.lightTextFieldStyle(),
-                                prefixIcon: const Icon(Icons.email_outlined),
-                              ),
                             ),
                             const SizedBox(height: 20.0),
                             TextField(
@@ -133,7 +125,7 @@ class _LogInState extends State<SignUp> {
                                       const Color.fromRGBO(59, 225, 139, 1.0),
                                   borderRadius: BorderRadius.circular(10)),
                               child: const Text(
-                                "SIGN UP",
+                                "LOGIN",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20.0,
@@ -151,11 +143,11 @@ class _LogInState extends State<SignUp> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const LogIn()),
+                              builder: (context) => const SignUp()),
                         );
                       },
                       child: Text(
-                        "Already have an account? Login",
+                        "Don't have an account? SignUp",
                         style: AppWidget.boldTextFieldStyle(),
                       ),
                     )
