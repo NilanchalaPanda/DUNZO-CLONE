@@ -25,8 +25,8 @@ class _LogInState extends State<LogIn> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                    Color.fromRGBO(59, 225, 139, 1.0),
-                    Color.fromRGBO(72, 232, 160, 1.0),
+                    Color.fromRGBO(76, 144, 206, 1.0),
+                    Color.fromRGBO(76, 152, 228, 1.0),
                   ])),
             ),
             Container(
@@ -47,8 +47,8 @@ class _LogInState extends State<LogIn> {
                   children: [
                     Center(
                       child: Image.asset(
-                        "images/dunzoSignup.png",
-                        width: MediaQuery.of(context).size.width,
+                        "images/dunzoLogin.png",
+                        width: MediaQuery.of(context).size.width / 2,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -58,7 +58,7 @@ class _LogInState extends State<LogIn> {
                         children: [
                           const SizedBox(height: 5.0),
                           Text(
-                            "Welcome to Dunzo Family",
+                            "I see! You came back :)",
                             style: AppWidget.boldTextFieldStyle(),
                           )
                         ],
@@ -66,7 +66,6 @@ class _LogInState extends State<LogIn> {
                     ),
 
                     // SIGNUP BOX
-                    const SizedBox(height: 10.0),
                     // ignore: avoid_unnecessary_containers
                     Card(
                       color: Colors.white,
@@ -121,8 +120,7 @@ class _LogInState extends State<LogIn> {
                                   right: 20.0,
                                   bottom: 10.0),
                               decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromRGBO(59, 225, 139, 1.0),
+                                  color: const Color.fromRGBO(115, 148, 255, 1.0),
                                   borderRadius: BorderRadius.circular(10)),
                               child: const Text(
                                 "LOGIN",
