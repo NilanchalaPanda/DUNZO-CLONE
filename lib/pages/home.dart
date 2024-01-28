@@ -56,6 +56,7 @@ class _HomeState extends State<Home> {
                   borderRadius: BorderRadius.circular(15.0),
                   child: Material(
                     elevation: 20.0,
+                    // ignore: avoid_unnecessary_containers
                     child: Container(
                       child: Image.asset(
                         "images/mainBanner.jpg",
@@ -97,6 +98,7 @@ class _HomeState extends State<Home> {
                   borderRadius: BorderRadius.circular(15.0),
                   child: Material(
                     elevation: 20.0,
+                    // ignore: avoid_unnecessary_containers
                     child: Container(
                       child: Image.asset(
                         "images/fruitBasket.png",
@@ -112,6 +114,7 @@ class _HomeState extends State<Home> {
                   borderRadius: BorderRadius.circular(15.0),
                   child: Material(
                     elevation: 20.0,
+                    // ignore: avoid_unnecessary_containers
                     child: Container(
                       child: Image.asset(
                         "images/fruitBasket.png", // Replace with your second image path

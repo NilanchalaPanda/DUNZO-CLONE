@@ -1,5 +1,5 @@
-// import 'package:dunzo/pages/login.dart';
-import 'package:dunzo/pages/Home.dart';
+import 'package:dunzo/pages/login.dart';
+// import 'package:dunzo/pages/Home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'DUNZO',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: const LogIn(),
     );
   }
 }
