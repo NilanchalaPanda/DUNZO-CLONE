@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:dunzo/pages/home.dart';
 import 'package:dunzo/pages/order.dart';
 import 'package:dunzo/pages/profile.dart';
@@ -12,7 +13,6 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> {
-
   int currentTabIndex = 0;
 
   late List<Widget> pages;
@@ -24,16 +24,35 @@ class _BottomNavState extends State<BottomNav> {
 
   @override
   void initState() {
-    homepage=const Home();
-    profile=const Profile();
-    order=const Order();
-    wallet=const Wallet();
-    pages=[homepage, order, wallet, profile];
+    homepage = const Home();
+    profile = const Profile();
+    order = const Order();
+    wallet = const Wallet();
+    pages = [homepage, order, wallet, profile];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
+        height: 55,
+        backgroundColor: Colors.white,
+        color: Colors.black,
+        animationDuration: const Duration(milliseconds: 500),
+        onTap: (int index) {
+          setState(() {
+            currentTabIndex = index;
+          });
+        },
+        items: const [
+          Icon(Icons.home_outlined, color: Colors.white),
+          Icon(Icons.shopping_bag_outlined, color: Colors.white),
+          Icon(Icons.wallet_outlined, color: Colors.white),
+          Icon(Icons.person_outlined, color: Colors.white),
+        ],
+      ),
+      body: pages[currentTabIndex],
+    );
   }
 }

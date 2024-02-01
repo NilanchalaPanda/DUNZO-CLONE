@@ -37,7 +37,7 @@ class _LogInState extends State<LogIn> {
           ),
         );
       } else if (e.code == "wrong-password") {
-        ScaffoldMessenger.of(context).showSnackBar(
+        ScaffoldMessenger.of(context).showSnackBar( 
           const SnackBar(
             content: Text(
               "Wrong password",
