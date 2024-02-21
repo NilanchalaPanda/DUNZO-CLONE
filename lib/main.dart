@@ -1,4 +1,4 @@
-import 'package:dunzo/pages/forgotPassord.dart';
+// import 'package:dunzo/pages/forgotPassord.dart';
 import 'package:dunzo/pages/onboard.dart';
 // import 'package:dunzo/pages/onboard.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const ForgotPassword(),
+      home: const OnBoard(),
     );
   }
 }

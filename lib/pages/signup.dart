@@ -1,3 +1,4 @@
+import "package:dunzo/pages/forgotPassord.dart";
 import "package:dunzo/pages/home.dart";
 import "package:dunzo/pages/login.dart";
 import "package:dunzo/widget/widget_support.dart";
@@ -37,7 +38,8 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
         );
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Home()));
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           // ignore: use_build_context_synchronously
@@ -194,16 +196,26 @@ class _SignUpState extends State<SignUp> {
                                 ),
                               ),
                               const SizedBox(height: 20.0),
-                              Container(
-                                  alignment: Alignment.topRight,
-                                  child: Text(
-                                    "Forgot Password?",
-                                    style: AppWidget.lightTextFieldStyle(),
-                                  )),
+                              // FORGOT PASSWORD -
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ForgotPassword()));
+                                },
+                                child: Container(
+                                    alignment: Alignment.topRight,
+                                    child: Text(
+                                      "Forgot Password?",
+                                      style: AppWidget.lightTextFieldStyle(),
+                                    )),
+                              ),
 
                               // ignore: avoid_unnecessary_containers
                               GestureDetector(
-                                onTap: () async{
+                                onTap: () async {
                                   if (_formkey.currentState!.validate()) {
                                     setState(() {
                                       email = emailController.text;
@@ -221,8 +233,8 @@ class _SignUpState extends State<SignUp> {
                                       right: 20.0,
                                       bottom: 10.0),
                                   decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromRGBO(59, 225, 139, 1.0),
+                                      color: const Color.fromRGBO(
+                                          59, 225, 139, 1.0),
                                       borderRadius: BorderRadius.circular(10)),
                                   child: const Text(
                                     "SIGN UP",

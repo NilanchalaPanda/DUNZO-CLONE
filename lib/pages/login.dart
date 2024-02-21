@@ -1,3 +1,4 @@
+import "package:dunzo/pages/forgotPassord.dart";
 import "package:dunzo/pages/home.dart";
 import "package:dunzo/pages/signup.dart";
 import "package:firebase_auth/firebase_auth.dart";
@@ -17,7 +18,9 @@ class _LogInState extends State<LogIn> {
 
   final _formkey = GlobalKey<FormState>();
 
+  // ignore: unnecessary_new
   TextEditingController emailController = new TextEditingController();
+  // ignore: unnecessary_new
   TextEditingController passwordController = new TextEditingController();
 
   userLogin() async {
@@ -25,23 +28,30 @@ class _LogInState extends State<LogIn> {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Home()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
               "User not found",
-              style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 0, 255, 191),),
+              style: TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 0, 255, 191),
+              ),
             ),
           ),
         );
       } else if (e.code == "wrong-password") {
-        ScaffoldMessenger.of(context).showSnackBar( 
+        ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
               "Wrong password",
-              style: TextStyle(fontSize: 20,color: Color.fromARGB(255, 0, 255, 191),),
+              style: TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 0, 255, 191),
+              ),
             ),
           ),
         );
@@ -130,8 +140,8 @@ class _LogInState extends State<LogIn> {
                               const SizedBox(height: 20.0),
                               TextFormField(
                                 controller: emailController,
-                                validator: (value){
-                                  if(value==null || value.isEmpty){
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
                                     return "Please enter your email ID";
                                   }
                                   return null;
@@ -145,8 +155,8 @@ class _LogInState extends State<LogIn> {
                               const SizedBox(height: 20.0),
                               TextFormField(
                                 controller: passwordController,
-                                validator: (value){
-                                  if(value==null || value.isEmpty){
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
                                     return "Please enter your password";
                                   }
                                   return null;
@@ -155,28 +165,39 @@ class _LogInState extends State<LogIn> {
                                 decoration: InputDecoration(
                                   hintText: "Password",
                                   hintStyle: AppWidget.lightTextFieldStyle(),
-                                  prefixIcon: const Icon(Icons.password_outlined),
+                                  prefixIcon:
+                                      const Icon(Icons.password_outlined),
                                 ),
                               ),
                               const SizedBox(height: 20.0),
-                              Container(
-                                  alignment: Alignment.topRight,
-                                  child: Text(
-                                    "Forgot Password?",
-                                    style: AppWidget.lightTextFieldStyle(),
-                                  )),
-                          
+
+                              // FORGOT PASSWORD -
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ForgotPassword()));
+                                },
+                                child: Container(
+                                    alignment: Alignment.topRight,
+                                    child: Text(
+                                      "Forgot Password?",
+                                      style: AppWidget.lightTextFieldStyle(),
+                                    )),
+                              ),
+
                               // ignore: avoid_unnecessary_containers
                               GestureDetector(
-                                onTap: (){
-                                  if(_formkey.currentState!.validate()){
+                                onTap: () {
+                                  if (_formkey.currentState!.validate()) {
                                     setState(() {
-                                      email=emailController.text;
-                                      password=passwordController.text;
+                                      email = emailController.text;
+                                      password = passwordController.text;
                                     });
                                     userLogin();
                                   }
-
                                 },
                                 child: Container(
                                   margin: const EdgeInsets.only(top: 35.0),
@@ -186,8 +207,8 @@ class _LogInState extends State<LogIn> {
                                       right: 20.0,
                                       bottom: 10.0),
                                   decoration: BoxDecoration(
-                                      color:
-                                          const Color.fromRGBO(115, 148, 255, 1.0),
+                                      color: const Color.fromRGBO(
+                                          115, 148, 255, 1.0),
                                       borderRadius: BorderRadius.circular(10)),
                                   child: const Text(
                                     "LOGIN",
