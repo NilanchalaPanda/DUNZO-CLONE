@@ -1,5 +1,5 @@
+import "package:dunzo/pages/bottomnav.dart";
 import "package:dunzo/pages/forgotPassord.dart";
-import "package:dunzo/pages/home.dart";
 import "package:dunzo/pages/signup.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
@@ -29,7 +29,7 @@ class _LogInState extends State<LogIn> {
           .signInWithEmailAndPassword(email: email, password: password);
 
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Home()));
+          context, MaterialPageRoute(builder: (context) => BottomNav()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
